@@ -1,3 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
+/*remove default css of everything and create my own*/
 * {
-    color:red
+  /*margin and padding should be 0*/
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
+
+/*here we target the list (about, projects, and contact) and remove the bullet-points from them*/
+li {
+    list-style-type: none;
+  }
+
+/* 
+
+  NAVIGATION 
+  
+*/
+
+/*set logo to the left and set links to the right*/
+nav {
+    /*display and justify-content will send logo and links to opposite sides of page*/
+    display: flex;
+    justify-content: space-between;
+    /* center ul list (about, contact, etc) the nav section and style */
+    align-items: center;
+    /* make responsive */
+    width: 100%;
+    max-width: 1200px;
+    /* centers everything 0=top and bottom, auto=left and right*/
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100px;
+  }
+  
+  /*use # for id's*/
+  /*Logo in nav bar*/
+  #personal-logo {
+    /*height and width of logo*/
+    width: 50px;
+    height: 50px;
+    /*inverting a filter turns it black from white*/
+    filter: invert(1);
+  }
+  
+  /*here we target the unordered links in the nav bar and change them from being 
+  on top of each other, to them being stacked side by side*/
+  .nav__link--list {
+    display: flex;
+  }
+  
+  /* this styles the links by adding space between them */
+  .nav__link {
+    margin: 0 12px;
+  }
+  
+  /* we created this class because we will target these anchors separate from the dark mode button that we will be adding and targeting separately */
+  /* all anchor elements */
+  .nav__link--anchor {
+    text-decoration: none;
+    font-size: 16px;
+    color: #242424;
+    font-weight: 700;
+  }
+  
+  .fa-adjust {
+    font-size: 20px;
+  }

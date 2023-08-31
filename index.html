@@ -6,37 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brooklynn Stevenson</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <!-- this is the icon for our contrast light and dark mode-->
+  <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <section id="landing-page">
-        <nav>
-            <figure>
-                <img src="" alt="">
-            </figure>
-            <ul class="nav__link--list">
-                <li class="nav__link">
-                    <a href="#" class="
-                    nav__link--anchor
-                    link__hover-effect
-                    link__hover-effect--black
-                    ">About</a>
-                </li>
-                <li class="nav__link">
-                    <a href="#" class="
-                    nav__link--anchor
-                    link__hover-effect
-                    link__hover-effect--black
-                    ">Projects</a>
-                </li>
-                <li class="nav__link">
-                    <a href="#" class="
-                    nav__link--anchor
-                    link__hover-effect
-                    link__hover-effect--black
-                    ">Contact</a>
-                </li>
-              </ul>
-        </nav>
+     <!--Start with Nav Bar-->
+  <!--section #landing-page creates section id tag-->
+  <section id="landing-page" onmousemove="moveBackground(event)">
+    <nav>
+      <!--wrap img in figure tag-->
+      <!--logo in top left corner-->
+      <figure>
+        <img id="personal-logo" src="./assets/logo.svg" alt="">
+      </figure>
+      <!--wrap img nav links in a unordered link-->
+      <!--using bemcss to separate the block, element , and modifier-->
+      <ul class="nav__link--list">
+        <li class="nav__link" onclick="toggleModal()">
+          <!--this anchor is what will send us down the page to specific locations-->
+          <!--if there is two words in one element then you just separate it with one hyphin
+          for example link__hover-effect. hover-effect has one hyfin-->
+          <a href="#" class="
+            nav__link--anchor
+            link__hover-effect
+            link__hover-effect--black
+          ">About</a>
+        </li>
+        <li class="nav__link">
+          <a href="#projects" class="
+            nav__link--anchor
+            link__hover-effect
+            link__hover-effect--black
+          ">Projects</a>
+        </li>
+        <li class="nav__link" onclick="toggleModal()">
+          <a href="#" class="
+            nav__link--anchor
+            link__hover-effect
+            link__hover-effect--black
+          ">Contact</a>
+        </li>
+        <li class="nav__link click" onclick="toggleContrast()">
+          <a href="#" class="
+            nav__link--anchor
+            link__hover-effect
+            link__hover-effect--black
+          "><i class="fas fa-adjust"></i></a>
+        </li>
+      </ul>
+    </nav>
     </section>
 </body>
 </html>
