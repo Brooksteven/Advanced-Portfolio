@@ -98,7 +98,70 @@
       <a href="#projects" class="scroll">
         <div class="scroll__icon click"></div>
       </a>
-    </section>
+
+    <!--Modal Section-->
+    <!--Modal is a large UI elements that sit on top of an application's main window-->
+    <div class="modal">
+      <!--modal half is the left side of the modal and modal about is the right side-->
+      <div class="modal__half modal__about">
+        <!--Text for the right side of modal-->
+        <h3 class="modal__title modal__title--about">Here's a bit about me.</h3>
+        <h4 class="modal__sub-title modal__sub-title--about">Software Engineer.</h4>
+        <p class="modal__para">
+          I'm a 29 year-old born and raised in Bakersfield, California <b class="orange">software engineer</b> with experience developing
+          websites for passion driven companies like <b class="orange">Baro</b> and <b class="orange">50 Mile Movement</b>.
+          <br>
+          I currently solve extremely difficult engineering
+          problems every day with <b class="orange">HTML</b>, <b class="orange">CSS</b> and <b
+            class="orange">JavaScript</b>
+          with other teams of Software Engineer's to provide a great <b class="orange">user experience.</b>
+        </p>
+
+        <!--This is my tech languages section-->
+        <div class="modal__languages">
+          <!--figure wraps the image-->
+          <figure class="modal__language">
+            <img class="modal__language--img"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/240px-HTML5_Badge.svg.png"
+              alt="">
+              <!--This allows the text of the language to show up when hovering over tech language imgs-->
+            <span class="language__name">HTML</span>
+          </figure>
+          <figure class="modal__language">
+            <img class="modal__language--img" src="https://cdn.iconscout.com/icon/free/png-256/css-131-722685.png"
+              alt="">
+            <span class="language__name">CSS</span>
+          </figure>
+          <figure class="modal__language">
+            <img class="modal__language--img" src="https://cdn.iconscout.com/icon/free/png-256/javascript-1-225993.png"
+              alt="">
+            <span class="language__name">JavaScript</span>
+          </figure>
+          <figure class="modal__language">
+            <img class="modal__language--img"
+              src="https://cdn.iconscout.com/icon/free/png-256/typescript-3521774-2945272.png" alt="">
+            <span class="language__name">TypeScript</span>
+          </figure>
+          <figure class="modal__language">
+            <img class="modal__language--img" src="https://cdn.iconscout.com/icon/free/png-256/react-3-1175109.png"
+              alt="">
+            <span class="language__name">React</span>
+          </figure>
+          <figure class="modal__language">
+            <img class="modal__language--img" src="https://cdn.iconscout.com/icon/free/png-256/vue-282497.png" alt="">
+            <span class="language__name">Vue</span>
+          </figure>
+        </div>
+      </div>
+      <!--THIS IS THE RIGHT SIDE OF THE MODAL-->
+      <div class="modal__half modal__contact">
+        <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+        <h3 class="modal__title modal__title--contact">
+          Let's have a chat!
+        </h3>
+      </div> <!--this div connects to class="modal__half modal__contact"!-->
+    </div>
+</section>
 
     <!--PROJECT SECTION-->
   <section id="projects">

@@ -291,7 +291,6 @@ nav {
   /* we created this class because we will target these anchors separate from the dark mode button that we will be adding and targeting separately */
   /* all anchor elements */
   .nav__link--anchor {
-    text-decoration: none;
     font-size: 16px;
     color: #242424;
     font-weight: 700;
@@ -300,6 +299,151 @@ nav {
   .fa-adjust {
     font-size: 20px;
   }
+
+/* 
+
+  MODAL 
+  
+*/
+
+/*TARGET modal*/
+.modal {
+  /*with position, top, and left we center it*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /*this makes sure it's in the center*/
+  transform: translate(-50%, -50%);
+  /*making the width of the section*/
+  width: 90%;
+  /*I'm going to cap the width for users using large computers*/
+  max-width: 1100px;
+  height: 700px;
+  /*box-shadow: 0 20px 80px 0 rgb(0, 0, 0, 0.55);*/
+  /*add border-radius to curve the edger and then do overflow; hidden to hide the overflow*/
+  border-radius: 20px;
+  overflow: hidden;
+  /*we want to separate the halves right and left so I did display
+  flex to bring the halves next to each other*/
+  display: flex;
+  visibility: hidden;
+  z-index: -1;
+  transition: visibility 1s, z-index 1s, box-shadow 0.5s ease;
+}
+
+.modal--open .modal{
+  z-index: 60;
+/*create a box for the section and do 0.55 spacity so it wont be as harsh in visibility*/
+  box-shadow: 0 20px 80px 0 rgb(0, 0, 0, 0.55);
+  visibility: visible;
+}
+
+/*target the left side of the modal*/
+.modal__half {
+  /*make the halves even*/
+  width: 50%;
+  padding: 40px 72px;
+  /*this put tech languages over each other*/
+  display: flex;
+  flex-direction: column;
+  /*This centers everything on the right side of the modal*/
+  justify-content: center;
+  position: relative;
+  transition: all 300ms ease-in;
+}
+
+.modal--open .modal__about,
+.modal--open .modal__contact
+{
+  transform: translateX(0%);
+}
+
+/*target the left side and make it white*/
+.modal__about {
+  background-color: rgb(245, 245, 245);
+  transform: translateX(-110%);
+}
+
+/*tech languages*/
+.modal__languages {
+  /*put languages next to each other*/
+  display: flex;
+  /*this starts a new row once it hits 4 tech imgs*/
+  flex-wrap: wrap;
+}
+
+/*target modal tech languages*/
+/*this is the tech img language wrapper, which is the tech imgs*/
+.modal__language {
+  /*25% because I have 4 languages per line of text*/
+  width: 25%;
+  /*add space around tech languages*/
+  padding: 16px;
+  position: relative;
+  /*this centers the text. specifically display,flex-direction, and align-items*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*when we hover over img the brightness and scaling will happen smoothly*/
+  transition: all 300ms ease;
+}
+
+/*this allows the text language to only show when hovering over that specific tech img*/
+.modal__language:hover .language__name {
+  transform: scale(1);
+}
+
+/*when user hovers over img it will get a shade and scale the img to be smaller when hovering over it */
+.modal__language:hover {
+  filter: brightness(80%);
+  transform: scale(0.9);
+}
+
+/*this is targeting the text img under the tech imgs*/
+.language__name {
+  /*position the text specifically to the tech img*/
+  position: absolute;
+/**/
+  bottom: -10px;
+  transform: scale(0);
+  /*the make sthe text under the tech imgs transition and show up smoothly*/
+  transition: all 300ms ease;
+}
+
+/*this is a width that is 100% of the parent. VERY IMPORTANRT. The imgs will go from
+being stacked on top of each other to being side by side and responsive*/
+.modal__language--img {
+  width: 100%;
+}
+
+
+/*target the right side and make background color black*/
+.modal__contact {
+  transform: translateX(110%);
+  background-color: #242424;
+  /*making color of text white*/
+  color: white;
+}
+
+/*This targets "Here's a bit about me*/
+.modal__title {
+  font-size: 26px;
+}
+
+/*This targets "Software Engineer" title*/
+.modal__sub-title {
+  /*here we create space around the title*/
+  margin: 12px 0 24px 0;
+  font-size: 14px;
+}
+
+/*This targets the paragraph*/
+.modal__para {
+  /*this creates space between tech languages and the bottom of the paragraph*/
+  margin-bottom: 12px;
+  /*this creates space between lines of text in the paragraph*/
+  line-height: 1.75;
+}
 
   /* 
 
