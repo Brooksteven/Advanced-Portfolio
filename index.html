@@ -99,5 +99,142 @@
         <div class="scroll__icon click"></div>
       </a>
     </section>
+
+    <!--PROJECT SECTION-->
+  <section id="projects">
+    <div class="container">
+      <div class="row">
+        <h1 class="section__title">
+          Here are some of my <span class="orange">projects</span>
+        </h1>
+        <ul class="project__list">
+          <!--list of projects-->
+          <li class="project">
+            <!--this represents project image section. everyhting that goes on the image will be under this. this is the parent.-->
+            <div class="project__wrapper">
+              <img src="./assets/google mockup.png" class="project__img" alt="">
+              <!--this project__wrapper--bg is on the same level as project__description so however you style the wrapper--bg is the same affect it will have on project__description.-->
+              <div class="project__wrapper--bg"></div>
+              <!--the box for the first project-->
+              <div class="project__description">
+                <!--this allows the text to be specifically edited-->
+                <h3 class="project__description--title">
+                  Project Coming Soon
+                </h3>
+                <h4 class="project__description--sub-title">
+                  Html, CSS, JavaScript, Vue 
+                </h4>
+                <p class="project__description--para">
+                  Project description coming soon.
+                </p>
+                <!--link to project will be in place of # for href-->
+                <div class="project__description--links">
+                  <a href="#" class="project__description--link">
+                    <!--github link-->
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#" class="project__description--link">
+                    <!--active link for project-->
+                    <i class="fas fa-link"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="project">
+            <div class="project__wrapper">
+              <img src="./assets/Frontend Simplified.png" class="project__img" alt="">
+              <div class="project__wrapper--bg"></div>
+              <div class="project__description">
+                <h3 class="project__description--title">
+                  Project Coming Soon
+                </h3>
+                <h4 class="project__description--sub-title">
+                  Html, CSS, JavaScript
+                </h4>
+                <p class="project__description--para">
+                  Project description coming soon.
+                </p>
+              </div>
+            </div>
+          </li>
+          <li class="project">
+            <div class="project__wrapper">
+              <img src="./assets/Eportfolio YT.png" class="project__img" alt="">
+              <div class="project__wrapper--bg"></div>
+              <div class="project__description">
+                <h3 class="project__description--title">
+                  Project Coming Soon
+                </h3>
+                <h4 class="project__description--sub-title">
+                  React, Node.js, Express.js, MongoDB
+                </h4>
+                <p class="project__description--para">
+                  Project description coming soon.
+                </p>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!--FOOTER-->
+  <footer>
+    <div class="container">
+      <!--add row to give margin to left  and right-->
+      <div class="row footer__row">
+        <a href="#" class="footer__anchor">
+          <!--creating class to target personal logo-->
+          <figure class="footer__logo">
+            <!--personal logo image-->
+            <img src="./assets/logo.svg" class="footer__logo--img" alt="">
+          </figure>
+          <span class="footer__logo--popper">
+            Top
+            <i class="fas fa-arrow-up"></i>
+          </span>
+        </a>
+        <!--this is where I put my social links-->
+        <div class="footer__social--list">
+          <!--this is where I link my github link-->
+          <a href="https://github.com/brooksteven" class="
+          footer__social--link
+          link__hover-effect
+          link__hover-effect--white
+        ">
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/brooklynn-stevenson/" target="_blank" class="
+          footer__social--link
+          link__hover-effect
+          link__hover-effect--white
+        ">
+            LinkedIn
+          </a>
+          <a href="#" onclick="toggleModal()" class="
+          footer__social--link
+          link__hover-effect
+          link__hover-effect--white
+        ">
+            Contact
+          </a>
+          <!--add resume here in href-->
+          <a href="./assets/" target="_blank" class="
+          footer__social--link
+          link__hover-effect
+          link__hover-effect--white
+        ">
+            Resume
+          </a>
+        </div>
+        <!--copyright section-->
+        <div class="footer__copyright">Copyright &copy; 2023 Brooklynn Stevenson</div>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>

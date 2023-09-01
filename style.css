@@ -38,7 +38,22 @@ p {
     transition: all 300ms ease;
   }
 
-  /*styling click class on the icon links (linkedin, github, pdf, and dark/light modr contrast icon for animation*/
+/*create space around "Here are some of my projects" container*/
+.container {
+  padding: 50px 0;
+   /*this affects the footer making the container 100% of the width*/
+  width: 100%;
+}
+
+/*spacing on sides*/
+.row {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+/*styling click class on the icon links (linkedin, github, pdf, and dark/light modr contrast icon for animation*/
 /*this causes a smooth transition*/
 .click {
   cursor: pointer;
@@ -249,3 +264,161 @@ nav {
   .fa-adjust {
     font-size: 20px;
   }
+
+  /* 
+
+  PROJECTS 
+  
+*/
+
+
+/*targeting "Here are some of my projects"*/
+.section__title {
+    /*center text*/
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 60px;
+  }
+  
+  .project {
+    margin-bottom: 135px;
+  }
+  
+  /*project image box width size 100% to make it responsive*/
+  .project__img {
+    width: 100%;
+    transition: all 600ms ease;
+  }
+  
+  /*make the wrapper relative so the description can be made position: absolute which will make the text position absolute(position on the image specifically) relative to the actual image*/
+  .project__wrapper {
+    position: relative;
+    /*this rounds the entire img/containers corners*/
+    border-radius: 20px;
+    /*0.45 is opacity*/
+    box-shadow: 0 20px 80px 0 rgb(0, 0, 0, 0.45);
+    /*border-radius was done to round the edges but the img is still over flowing so we want to hide the over flow so we can see the rounded corners*/
+    overflow: hidden;
+  }
+  
+  /*project__wrapper is the parent */
+  .project__wrapper:hover .project__description {
+    opacity: 1;
+    /*whenever you do top:50% (in position__description) you need to do translateY(-50%) to get it in the middle of the Y axis
+    every time you do left: 50% you need to do transform: translateX(-50%) to center when doing absolute*/
+    transform: translateY(-50%);
+  }
+  
+  /*project background blows up and transforms/animates be 1.07 when we hover over it*/
+  .project__wrapper:hover .project__img {
+    transform: scale(1.07);
+    filter: blur(5px);
+  }
+  
+  .project__description {
+    position: absolute;
+    top: 50%;
+    left: 90px;
+    /*this centers the description text*/
+    transform: translateY(100%);
+    /*description is hidden in its normal state but when you hover over it, it becomes an opacity of 1 which is in the 
+    project__wrapper: hover project__description section*/
+    opacity: 0;
+    /*this makes for a smooth transition*/
+    transition: opacity 300ms, transform 450ms ease;
+    color: white;
+    max-width: 550px;
+  }
+  
+  .project__wrapper:hover .project__wrapper--bg {
+    /*background will be visible with light dark shade over it from opacity 0.7*/
+    opacity: 0.7; 
+    visibility: visible;
+  }
+  
+  .project__wrapper--bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1c1d25;
+    /*makes background color transparent*/
+    opacity: 0; 
+    transition: all 450ms ease;
+    visibility: hidden;
+  }
+  
+  /*targeting the description title text*/
+  .project__description--title {
+    font-size: 40px;
+  }
+  
+  /*techologies description section*/
+  .project__description--sub-title {
+    /*creating space between title and technologies on top of technologies*/
+    margin-top: 8px;
+  }
+  
+  /*targeting the github and other link in description section*/
+  .project__description--link {
+    color: white;
+    font-size: 20px;
+    /*space the icons out from one another*/
+    margin-right: 16px;
+  }
+  
+  /*paragraph section of the description section (not technologies)*/
+  .project__description--para {
+    /*creating space on top and bottom*/
+    margin: 16px 0;
+  }
+
+
+/* 
+
+  FOOTER 
+  
+*/
+
+/*here I target my footer*/
+footer {
+  position: relative;
+  background-color: #242424;
+  /*bring everything next to each other*/
+  display: flex;
+  /*add padding around elements*/
+  padding: 6% 0;
+}
+
+.footer__row {
+  display: flex;
+  flex-direction: column;
+  /*align-items center normally centers vertically and will have it nect to the personal logo, but since
+  we combined it with flex-direction: column it will now align it horizontally putting it under the personal logo*/
+  align-items: center;
+}
+
+/*targeting  personal logo in footer*/
+.footer__logo--img {
+  width: 70px;
+  /*height: 70px remove this so the img wont be cut off and the margin will now be even*/
+}
+
+.footer__social--list {
+  /*span the entire width of the page in footer and make responsive with width: 100%*/
+  width: 100%;
+  /*bring links a little closer together after being spaced out by justify-content: space-around*/
+  max-width: 500px;
+  /*brings everything next to each other to have more control*/
+  display: flex;
+  /*create space between links*/
+  justify-content: space-around;
+  margin: 28px 0;
+}
+
+/*tutrn links and copyright statement white*/
+.footer__social--link,
+.footer__copyright {
+  color: white;
+}
