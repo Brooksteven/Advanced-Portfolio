@@ -84,6 +84,42 @@ p {
   color: #f06449 !important;
 }
 
+/*this is the parent. eveything becomes relative to this*/
+.link__hover-effect {
+  position: relative;
+}
+
+.link__hover-effect:after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  height: 3px;
+  width: 0;
+  /*the lines under the links resting place is to the right*/
+  right: 0;
+  /*make a smooth transition*/
+  transition: all 300ms ease;
+}
+
+/*this is for the links in the footer. I had to do this because the background
+in the footer is black so I had to make this hover effect for white text 
+so it could show up in the footer*/
+.link__hover-effect--white:after {
+  background-color: #fff;
+}
+
+.link__hover-effect--black:after {
+  background-color: #242424;
+}
+
+/*when we hover over the animation will come from the left.
+width will only be given when hovering over links*/
+/*the animation wont happen unless we put after*/
+.link__hover-effect:hover:after {
+  left: 0;
+  width: 100%;
+}
+
 /* 
 
   LANDING PAGE
@@ -287,6 +323,7 @@ nav {
   /*project image box width size 100% to make it responsive*/
   .project__img {
     width: 100%;
+    /*when we hover over project img there will be a smooth transition*/
     transition: all 600ms ease;
   }
   
@@ -309,7 +346,7 @@ nav {
     transform: translateY(-50%);
   }
   
-  /*project background blows up and transforms/animates be 1.07 when we hover over it*/
+  /*project background blows up and transforms/animates be 1.07 when we hover over it and I blured it*/
   .project__wrapper:hover .project__img {
     transform: scale(1.07);
     filter: blur(5px);
