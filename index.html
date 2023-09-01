@@ -13,7 +13,7 @@
 <body>
      <!--Start with Nav Bar-->
   <!--section #landing-page creates section id tag-->
-  <section id="landing-page" onmousemove="moveBackground(event)">
+  <section id="landing-page">
     <nav>
       <!--wrap img in figure tag-->
       <!--logo in top left corner-->
@@ -23,7 +23,7 @@
       <!--wrap img nav links in a unordered link-->
       <!--using bemcss to separate the block, element , and modifier-->
       <ul class="nav__link--list">
-        <li class="nav__link" onclick="toggleModal()">
+        <li class="nav__link">
           <!--this anchor is what will send us down the page to specific locations-->
           <!--if there is two words in one element then you just separate it with one hyphin
           for example link__hover-effect. hover-effect has one hyfin-->
@@ -40,14 +40,14 @@
             link__hover-effect--black
           ">Projects</a>
         </li>
-        <li class="nav__link" onclick="toggleModal()">
+        <li class="nav__link">
           <a href="#" class="
             nav__link--anchor
             link__hover-effect
             link__hover-effect--black
           ">Contact</a>
         </li>
-        <li class="nav__link click" onclick="toggleContrast()">
+        <li class="nav__link click">
           <a href="#" class="
             nav__link--anchor
             link__hover-effect
@@ -56,6 +56,48 @@
         </li>
       </ul>
     </nav>
+     <!--the header wraps everything-->
+     <header class="header">
+        <div class="header__content">
+          <h1 class="title">Hey</h1>
+          <h1 class="title orange">I'm Brooklynn.</h1>
+          <!--write my text here-->
+          <p class="header__para">
+            I'm a <b class="orange">Software Engineer</b> with a strong passion for building web applications
+            with great user
+            experiences.
+            <!--this breaks the text and starts a new line of text-->
+            <br>
+            Here's a bit more <b class="orange">about me</b>.
+          </p>
+          <!--linkedin, github, and pdf icon under paragraph text-->
+          <div class="social__list">
+            <!--I added a click class on class="social__link" so when hovering on icons they become animated-->
+            <!--target=blank sends user to a new page-->
+            <a href="https://www.linkedin.com/in/brooklynn-stevenson/" target="_blank" class="social__link click">
+              <!--icon link from front awesome-->
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/brooksteven" target="_blank" class="social__link click">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="./assets/Brooklynn Stevenson Tech Resume 2023.pdf" target="_blank" class="social__link click">
+              <i class="fas fa-file-pdf"></i>
+            </a>
+          </div>
+        </div>
+      </header>
+      <a href="#">
+        <!--email contact icon in right bottom corner-->
+        <!--could have used target=blank instead of button but we aren't trying to pop up a new page. we are doing a pop up within the application-->
+        <button class="mail__btn click">
+          <i class="fas fa-envelope"></i>
+        </button>
+      </a>
+      <!--href will send user down to projects section-->
+      <a href="#projects" class="scroll">
+        <div class="scroll__icon click"></div>
+      </a>
     </section>
 </body>
 </html>

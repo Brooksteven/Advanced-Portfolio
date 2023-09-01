@@ -14,6 +14,186 @@ li {
     list-style-type: none;
   }
 
+/*targeting paragraph all paragraph tags*/
+p {
+    /*creates space between lines of text*/
+    line-height: 1.5;
+    font-size: 16px;
+  }
+  
+  /*removed underlines and dots from all anchor tags*/
+  a {
+    text-decoration: none;
+  }
+  
+  /*add cursor: pointer over the email icon in bottom right corner.
+  when hovering over button the cursor will change*/
+  button {
+    cursor: pointer;
+  }
+
+  /*this color targets every color/entire project*/
+  section {
+    background-color: rgb(245, 245, 245);
+    transition: all 300ms ease;
+  }
+
+  /*styling click class on the icon links (linkedin, github, pdf, and dark/light modr contrast icon for animation*/
+/*this causes a smooth transition*/
+.click {
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+
+/*causes icon to get bigger when hovering over it*/
+.click:hover {
+  transform: scale(1.1);
+}
+
+/*when clicking icon it becomes smaller*/
+.click:active {
+  transform: scale(0.8);
+}
+
+/*Hey I'm Brooklynn Text*/ 
+.title {
+  font-size: 120px;
+  margin-bottom: 12px;
+  text-align: left;
+  line-height: 1;
+}
+
+/*I'm Brooklynn, Software Engineer, and about me*/
+
+.orange {
+  color: #f06449 !important;
+}
+
+/* 
+
+  LANDING PAGE
+  
+*/
+
+/*target id of landing page and set to 100vh so we don't go to the next section ever*/
+#landing-page {
+    min-height: 100vh;
+}
+
+.header {
+    position: absolute;
+    /*this puts text in the middle (top, left, and transform)*/
+    top: 50%;
+    left: 50%;
+    /*This puts text in the middle*/
+    transform: translate(-50%, -50%);
+    /*make text responsive. never go under 100%*/
+    width: 100%;
+    max-width: 1000px;
+    /*add padding on the sides 30px*/
+    padding: 0 30px;
+  }
+  
+  /*targeting I'm a Software engineer paragraph*/
+  .header__para {
+    font-size: 24px;
+    line-height: 2;
+    /*added max width so the text wont spand the entire width of the page*/
+    max-width: 450px;
+  }
+  
+  /*make icons (linkedin, github, pdf) bigger and space them out*/
+  .social__list {
+    margin-top: 16px;
+    /*THIS IS WHAT MAKES THE ICONS SIDE BY SIDE*/
+    display: flex;
+  }
+  
+  /*target each individual icon/link (linkedin, github, and pdf)*/
+  .social__link {
+    background-color: #f06449;
+    color: white;
+    padding: 6px;
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    /*space to the right of each icon*/
+    margin-right: 12px;
+    /*text-align: center would work if this was text, but we are dealing with elements so we do display: flex and justify-content: center */
+    display: flex;
+    justify-content: center;
+    /*this centers the icons vertically*/
+    align-items: center;
+    /*this makes icons a circle*/
+    border-radius: 50%;
+  }
+  
+  /*email icon in bottom right corner*/
+  .mail__btn {
+    width: 70px;
+    height: 70px;
+    font-size: 32px;
+    border-radius: 50%;
+    border: none;
+    background-color: #242424;
+    color: white;
+    /*position at bottom right with position, bottom, and right*/
+    position: fixed;
+    bottom: 32px;
+    right: 40px;
+    z-index: 100;
+    box-shadow: 0 12px 30px 0 rgb(0, 0, 0, 0.28);
+  }
+  
+  /*targets scroll*/
+  .scroll {
+    /*don't want to ruin any other elements, want it by itself*/
+    position: absolute;
+    bottom: 20px;
+    /*this centers the element*/
+    left: 50%;
+    /*every time you use position: absolute you always need to transform it back 50%*/
+    /*we are only transforming it to the left so use X. You can use Y if transforming it up or down*/
+    transform: translateX(-50%);
+  }
+  
+  .scroll__icon {
+    width: 20px;
+    height: 30px;
+    /*this causes the scroll to be visible*/
+    border: 2px solid #242424;
+    border-radius: 24px;
+    /*this makes scroll visible. displa, align-items, justify-content*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /*creating animation for scroll element*/
+  .scroll__icon:after {
+    /*b/c scroll is a suiter element you have to set content even if it's to nothing*/
+    content: "";
+    width: 4px;
+    height: 6px;
+    background-color: #242424;
+    /*makes scroll round**/
+    border-radius: 2px;
+    /*keyframes only works with this animation. 1000ms = 1 sec. alternate-reverse makes the scroll smooth and slow compared to quick up and down motions*/
+    animation: scroll 1000ms infinite alternate-reverse;
+  }
+  
+  /*this creates animation in css @keyframes (then put class)*/
+  @keyframes scroll {
+    /*this makes the scroll go up and down*/
+    0% {
+      transform: translateY(3px);
+    }
+    
+    100% {
+      transform: translateY(-3px);
+    }
+  }  
+
 /* 
 
   NAVIGATION 
