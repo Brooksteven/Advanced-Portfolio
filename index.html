@@ -1,29 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brooklynn Stevenson</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
-    <!-- this is the icon for our contrast light and dark mode-->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brooklynn Stevenson</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+  <!-- this is the icon for our contrast light and dark mode-->
   <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+  <!--here I linked the index.js-->
+  <script src="index.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <!--this allows emails to come through-->
+  <script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+  (function(){
+    emailjs.init("olYE-xIKGJsqcw8_R");
+  })();
+</script>
 </head>
+
 <body>
-     <!--Start with Nav Bar-->
+  <!--Start with Nav Bar-->
   <!--section #landing-page creates section id tag-->
-  <section id="landing-page">
+  <section id="landing-page" onmousemove="moveBackground(event)">
     <nav>
       <!--wrap img in figure tag-->
       <!--logo in top left corner-->
       <figure>
-        <img id="personal-logo" src="./assets/logo.svg" alt="">
+        <img id="personal-logo" src="" alt="my personal logo">
       </figure>
       <!--wrap img nav links in a unordered link-->
       <!--using bemcss to separate the block, element , and modifier-->
       <ul class="nav__link--list">
-        <li class="nav__link">
+        <li class="nav__link" onclick="toggleModal()">
           <!--this anchor is what will send us down the page to specific locations-->
           <!--if there is two words in one element then you just separate it with one hyphin
           for example link__hover-effect. hover-effect has one hyfin-->
@@ -40,14 +54,14 @@
             link__hover-effect--black
           ">Projects</a>
         </li>
-        <li class="nav__link">
+        <li class="nav__link" onclick="toggleModal()">
           <a href="#" class="
             nav__link--anchor
             link__hover-effect
             link__hover-effect--black
           ">Contact</a>
         </li>
-        <li class="nav__link click">
+        <li class="nav__link click" onclick="toggleContrast()">
           <a href="#" class="
             nav__link--anchor
             link__hover-effect
@@ -56,48 +70,48 @@
         </li>
       </ul>
     </nav>
-     <!--the header wraps everything-->
-     <header class="header">
-        <div class="header__content">
-          <h1 class="title">Hey</h1>
-          <h1 class="title orange">I'm Brooklynn.</h1>
-          <!--write my text here-->
-          <p class="header__para">
-            I'm a <b class="orange">Software Engineer</b> with a strong passion for building web applications
-            with great user
-            experiences.
-            <!--this breaks the text and starts a new line of text-->
-            <br>
-            Here's a bit more <b class="orange">about me</b>.
-          </p>
-          <!--linkedin, github, and pdf icon under paragraph text-->
-          <div class="social__list">
-            <!--I added a click class on class="social__link" so when hovering on icons they become animated-->
-            <!--target=blank sends user to a new page-->
-            <a href="https://www.linkedin.com/in/brooklynn-stevenson/" target="_blank" class="social__link click">
-              <!--icon link from front awesome-->
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://github.com/brooksteven" target="_blank" class="social__link click">
-              <i class="fab fa-github"></i>
-            </a>
-            <a href="./assets/Brooklynn Stevenson Tech Resume 2023.pdf" target="_blank" class="social__link click">
-              <i class="fas fa-file-pdf"></i>
-            </a>
-          </div>
+    <!--the header wraps everything-->
+    <header class="header">
+      <div class="header__content">
+        <h1 class="title">Hey</h1>
+        <h1 class="title orange">I'm Brooklynn.</h1>
+        <!--write my text here-->
+        <p class="header__para">
+          I'm a <b class="orange">Software Engineer</b> with a strong passion for building web applications
+          with great user
+          experiences.
+          <!--this breaks the text and starts a new line of text-->
+          <br>
+          Here's a bit more <b class="orange" onclick="toggleModal()">about me</b>.
+        </p>
+        <!--linkedin, github, and pdf icon under paragraph text-->
+        <div class="social__list">
+          <!--I added a click class on class="social__link" so when hovering on icons they become animated-->
+          <!--target=blank sends user to a new page-->
+          <a href="https://www.linkedin.com/in/brooklynn-stevenson/" target="_blank" class="social__link click">
+            <!--icon link from front awesome-->
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/brooksteven" target="_blank" class="social__link click">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="./assets/Brooklynn Stevenson Tech Resume 2023.pdf" target="_blank" class="social__link click">
+            <i class="fas fa-file-pdf"></i>
+          </a>
         </div>
-      </header>
-      <a href="#">
-        <!--email contact icon in right bottom corner-->
-        <!--could have used target=blank instead of button but we aren't trying to pop up a new page. we are doing a pop up within the application-->
-        <button class="mail__btn click">
-          <i class="fas fa-envelope"></i>
-        </button>
-      </a>
-      <!--href will send user down to projects section-->
-      <a href="#projects" class="scroll">
-        <div class="scroll__icon click"></div>
-      </a>
+      </div>
+    </header>
+    <a href="#">
+      <!--email contact icon in right bottom corner-->
+      <!--could have used target=blank instead of button but we aren't trying to pop up a new page. we are doing a pop up within the application-->
+      <button class="mail__btn click" onclick="toggleModal()">
+        <i class="fas fa-envelope"></i>
+      </button>
+    </a>
+    <!--href will send user down to projects section-->
+    <a href="#projects" class="scroll">
+      <div class="scroll__icon click"></div>
+    </a>
 
     <!--Modal Section-->
     <!--Modal is a large UI elements that sit on top of an application's main window-->
@@ -159,11 +173,60 @@
         <h3 class="modal__title modal__title--contact">
           Let's have a chat!
         </h3>
-      </div> <!--this div connects to class="modal__half modal__contact"!-->
-    </div>
-</section>
+        <h3 class="modal__sub-title modal__sub-title--contact">
+          I'm currently open to new opportunities.
+        </h3>
+        <!--when we submit our contact form we want to call a contact class-->
+        <!--here I created 3 input fields. This is the parent-->
+        <form id="contact__form" onsubmit="contact(event)">
+          <!--Name input section-->
+          <div class="form__item">
+            <label class="form__item--label">Name</label>
+            <!--name="user_name is here for the email js portion I will be adding later"-->
+            <!--adding required forces the user to put all required inputs before submitting-->
+            <input class="input" name="user_name" type="text" required></input>
+          </div>
+          <!--Email input section-->
+          <div class="form__item">
+            <label class="form__item--label">Email</label>
+            <input class="input" name="user_email" type="email" required></input>
+          </div>
+          <!--Message input section-->
+          <!--this is different from the other sections because it is a textarea-->
+          <div class="form__item">
+            <label class="form__item--label">Message</label>
+            <textarea class="input" name="message" type="text" required></textarea>
+          </div>
+          <!-- put the submit button inside the form -->
+          <!--when we click this button the contact onsubmut="contact(event) will fire"-->
+          <button id="contact__submit" class="form__submit">
+            Send it my way
+          </button>
+        </form>
+        <!--this is the LOADING STATE in the modal and then the green success state-->
+        <div class="modal__overlay modal__overlay--loading">
+          <!--this is the loading spiiner after clicking submit-->
+          <i class="fas fa-spinner"></i>
+        </div>
+        <!--THIS IS THE SUCCESS STATE-->
+        <div class="modal__overlay modal__overlay--success">
+          Thanks for the message! Looking forward to speaking to you soon.
+        </div>
+      </div>
+      <!--This is the X to exit out of the contact form: i class="fas fa-times modal__exit click"></i>-->
+    </div> 
+    <img src="./assets/semi circle.svg" class="shape shape--0">
+    <img src="./assets/circle.svg" class="shape shape--1">
+    <img src="./assets/squiggly.svg" class="shape shape--2">
+    <img src="./assets/circle.svg" class="shape shape--3">
+    <img src="./assets/triangle.svg" class="shape shape--4">
+    <img src="./assets/circle.svg" class="shape shape--5">
+    <img src="./assets/squiggly.svg" class="shape shape--6">
+    <img src="./assets/circle.svg" class="shape shape--7">
+    <img src="./assets/semi circle.svg" class="shape shape--8">
+  </section>
 
-    <!--PROJECT SECTION-->
+  <!--PROJECT SECTION-->
   <section id="projects">
     <div class="container">
       <div class="row">
@@ -243,8 +306,6 @@
       </div>
     </div>
   </section>
-
-  <!--FOOTER-->
   <footer>
     <div class="container">
       <!--add row to give margin to left  and right-->
@@ -253,7 +314,7 @@
           <!--creating class to target personal logo-->
           <figure class="footer__logo">
             <!--personal logo image-->
-            <img src="./assets/logo.svg" class="footer__logo--img" alt="">
+            <img src="" class="footer__logo--img" alt="my personal logo">
           </figure>
           <span class="footer__logo--popper">
             Top
@@ -284,8 +345,7 @@
         ">
             Contact
           </a>
-          <!--add resume here in href-->
-          <a href="./assets/" target="_blank" class="
+          <a href="" target="_blank" class="
           footer__social--link
           link__hover-effect
           link__hover-effect--white
@@ -298,6 +358,6 @@
       </div>
     </div>
   </footer>
-
 </body>
+
 </html>
