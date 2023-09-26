@@ -9,39 +9,88 @@
   font-family: 'Roboto', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /*here we target the list (about, projects, and contact) and remove the bullet-points from them*/
 li {
-    list-style-type: none;
-  }
+  list-style-type: none;
+}
 
 /*targeting paragraph all paragraph tags*/
 p {
-    /*creates space between lines of text*/
-    line-height: 1.5;
-    font-size: 16px;
-  }
-  
-  /*removed underlines and dots from all anchor tags*/
-  a {
-    text-decoration: none;
-  }
-  
-  /*add cursor: pointer over the email icon in bottom right corner.
-  when hovering over button the cursor will change*/
-  button {
-    cursor: pointer;
-  }
+  /*creates space between lines of text*/
+  line-height: 1.5;
+  font-size: 16px;
+}
 
-  /*this color targets every color/entire project*/
-  section {
-    background-color: rgb(245, 245, 245);
-    transition: all 300ms ease;
-  }
+/*removed underlines and dots from all anchor tags*/
+a {
+  text-decoration: none;
+}
+
+/*add cursor: pointer over the email icon in bottom right corner.
+when hovering over button the cursor will change*/
+button {
+  cursor: pointer;
+}
+
+/*this color targets every color/entire project*/
+section {
+  background-color: rgb(245, 245, 245);
+  transition: all 300ms ease;
+}
+
+/*This is for the form section for our contact modal on the right side*/
+input, textarea {
+  /*we want the width to span the right side*/
+  width: 100%;
+  background-color: #242424;
+  color: #fff;
+  /*remove the blue outline*/
+  outline: none;
+  border: 3px solid #c0c4cc;
+  /*no border on top left or right, only on the bottom*/
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  /*height of text section*/
+  height: 40px;
+  /*animations in this section specifically when hovering over the text area will transition smoothly*/
+  transition: all 300ms ease;
+}
+
+/*resize text area*/
+textarea {
+  resize: vertical;
+  /*hard code height*/
+  height: 100px;
+  /*add space to the top of text area because to close to text area label name, email, and message*/
+  margin-top: 8px;
+}
+
+/*target input titles name, email, and message*/
+label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/*when hovering over the line under the text area, the input field will change color 
+we want the color to be more white instead of orange when hovering over it*/
+input:hover, textarea:hover {
+  border-color: #dcdfe6;
+}
+
+/*when you click the text area space it will turn orange*/
+input:focus, textarea:focus {
+  border-color: #f06449;
+}
 
 /*create space around "Here are some of my projects" container*/
 .container {
   padding: 50px 0;
-   /*this affects the footer making the container 100% of the width*/
+  /*this affects the footer making the container 100% of the width*/
   width: 100%;
 }
 
@@ -55,6 +104,7 @@ p {
 
 /*styling click class on the icon links (linkedin, github, pdf, and dark/light modr contrast icon for animation*/
 /*this causes a smooth transition*/
+/*this cursor will also appear when hovering over the X on the modal form to exit out of the form*/
 .click {
   cursor: pointer;
   transition: all 300ms ease;
@@ -120,130 +170,179 @@ width will only be given when hovering over links*/
   width: 100%;
 }
 
+nav,
+.scroll,
+.header {
+  opacity: 1;
+  visibility: visible;
+  transition: all 600ms 800ms;
+}
+
+.modal--open nav,
+.modal--open .scroll,
+.modal--open .header {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 400ms;
+}
+
+/*this allows us to make every section dark*/
+.dark-theme .title,
+.dark-theme .section__title,
+.dark-theme .section__sub-title,
+.dark-theme .nav__link--anchor,
+.dark-theme .fa-adjust,
+.dark-theme .header__para
+{
+  color: white;
+}
+
+
+.dark-theme section {
+  background-color: #242424;
+}
+
+/*my personal logo will be white when complete during dark mode*/
+.dark-theme #personal-logo {
+  filter: none;
+}
+
+
+.dark-theme .scroll__icon {
+  border-color: white;
+}
+.dark-theme .scroll__icon:after,
+.dark-theme .link__hover-effect--black:after {
+  background-color: white;
+}
+
+/*button white*/
+.dark-theme .mail__btn {
+  background-color: white;
+  color: #242424;
+}
 /* 
 
-  LANDING PAGE
+  LANDING PAGE 
   
 */
-
-/*target id of landing page and set to 100vh so we don't go to the next section ever*/
 #landing-page {
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
 .header {
-    position: absolute;
-    /*this puts text in the middle (top, left, and transform)*/
-    top: 50%;
-    left: 50%;
-    /*This puts text in the middle*/
-    transform: translate(-50%, -50%);
-    /*make text responsive. never go under 100%*/
-    width: 100%;
-    max-width: 1000px;
-    /*add padding on the sides 30px*/
-    padding: 0 30px;
+  position: absolute;
+  /*this puts text in the middle (top, left, and transform)*/
+  top: 50%;
+  left: 50%;
+  /*This puts text in the middle*/
+  transform: translate(-50%, -50%);
+  /*make text responsive. never go under 100%*/
+  width: 100%;
+  max-width: 1000px;
+  /*add padding on the sides 30px*/
+  padding: 0 30px;
+}
+
+/*targeting I'm a Software engineer paragraph*/
+.header__para {
+  font-size: 24px;
+  line-height: 2;
+  /*added max width so the text wont spand the entire width of the page*/
+  max-width: 450px;
+}
+
+/*make icons (linkedin, github, pdf) bigger and space them out*/
+.social__list {
+  margin-top: 16px;
+  /*THIS IS WHAT MAKES THE ICONS SIDE BY SIDE*/
+  display: flex;
+}
+
+/*target each individual icon/link (linkedin, github, and pdf)*/
+.social__link {
+  background-color: #f06449;
+  color: white;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+  /*space to the right of each icon*/
+  margin-right: 12px;
+  /*text-align: center would work if this was text, but we are dealing with elements so we do display: flex and justify-content: center */
+  display: flex;
+  justify-content: center;
+  /*this centers the icons vertically*/
+  align-items: center;
+  /*this makes icons a circle*/
+  border-radius: 50%;
+}
+
+/*email icon in bottom right corner*/
+.mail__btn {
+  width: 70px;
+  height: 70px;
+  font-size: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: #242424;
+  color: white;
+  /*position at bottom right with position, bottom, and right*/
+  position: fixed;
+  bottom: 32px;
+  right: 40px;
+  z-index: 100;
+  box-shadow: 0 12px 30px 0 rgb(0, 0, 0, 0.28);
+}
+
+/*targets scroll*/
+.scroll {
+  /*don't want to ruin any other elements, want it by itself*/
+  position: absolute;
+  bottom: 20px;
+  /*this centers the element*/
+  left: 50%;
+  /*every time you use position: absolute you always need to transform it back 50%*/
+  /*we are only transforming it to the left so use X. You can use Y if transforming it up or down*/
+  transform: translateX(-50%);
+}
+
+.scroll__icon {
+  width: 20px;
+  height: 30px;
+  /*this causes the scroll to be visible*/
+  border: 2px solid #242424;
+  border-radius: 24px;
+  /*this makes scroll visible. displa, align-items, justify-content*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*creating animation for scroll element*/
+.scroll__icon:after {
+  /*b/c scroll is a suiter element you have to set content even if it's to nothing*/
+  content: "";
+  width: 4px;
+  height: 6px;
+  background-color: #242424;
+  /*makes scroll round**/
+  border-radius: 2px;
+  /*keyframes only works with this animation. 1000ms = 1 sec. alternate-reverse makes the scroll smooth and slow compared to quick up and down motions*/
+  animation: scroll 1000ms infinite alternate-reverse;
+}
+
+/*this creates animation in css @keyframes (then put class)*/
+@keyframes scroll {
+  /*this makes the scroll go up and down*/
+  0% {
+    transform: translateY(3px);
   }
   
-  /*targeting I'm a Software engineer paragraph*/
-  .header__para {
-    font-size: 24px;
-    line-height: 2;
-    /*added max width so the text wont spand the entire width of the page*/
-    max-width: 450px;
+  100% {
+    transform: translateY(-3px);
   }
-  
-  /*make icons (linkedin, github, pdf) bigger and space them out*/
-  .social__list {
-    margin-top: 16px;
-    /*THIS IS WHAT MAKES THE ICONS SIDE BY SIDE*/
-    display: flex;
-  }
-  
-  /*target each individual icon/link (linkedin, github, and pdf)*/
-  .social__link {
-    background-color: #f06449;
-    color: white;
-    padding: 6px;
-    width: 32px;
-    height: 32px;
-    font-size: 14px;
-    /*space to the right of each icon*/
-    margin-right: 12px;
-    /*text-align: center would work if this was text, but we are dealing with elements so we do display: flex and justify-content: center */
-    display: flex;
-    justify-content: center;
-    /*this centers the icons vertically*/
-    align-items: center;
-    /*this makes icons a circle*/
-    border-radius: 50%;
-  }
-  
-  /*email icon in bottom right corner*/
-  .mail__btn {
-    width: 70px;
-    height: 70px;
-    font-size: 32px;
-    border-radius: 50%;
-    border: none;
-    background-color: #242424;
-    color: white;
-    /*position at bottom right with position, bottom, and right*/
-    position: fixed;
-    bottom: 32px;
-    right: 40px;
-    z-index: 100;
-    box-shadow: 0 12px 30px 0 rgb(0, 0, 0, 0.28);
-  }
-  
-  /*targets scroll*/
-  .scroll {
-    /*don't want to ruin any other elements, want it by itself*/
-    position: absolute;
-    bottom: 20px;
-    /*this centers the element*/
-    left: 50%;
-    /*every time you use position: absolute you always need to transform it back 50%*/
-    /*we are only transforming it to the left so use X. You can use Y if transforming it up or down*/
-    transform: translateX(-50%);
-  }
-  
-  .scroll__icon {
-    width: 20px;
-    height: 30px;
-    /*this causes the scroll to be visible*/
-    border: 2px solid #242424;
-    border-radius: 24px;
-    /*this makes scroll visible. displa, align-items, justify-content*/
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /*creating animation for scroll element*/
-  .scroll__icon:after {
-    /*b/c scroll is a suiter element you have to set content even if it's to nothing*/
-    content: "";
-    width: 4px;
-    height: 6px;
-    background-color: #242424;
-    /*makes scroll round**/
-    border-radius: 2px;
-    /*keyframes only works with this animation. 1000ms = 1 sec. alternate-reverse makes the scroll smooth and slow compared to quick up and down motions*/
-    animation: scroll 1000ms infinite alternate-reverse;
-  }
-  
-  /*this creates animation in css @keyframes (then put class)*/
-  @keyframes scroll {
-    /*this makes the scroll go up and down*/
-    0% {
-      transform: translateY(3px);
-    }
-    
-    100% {
-      transform: translateY(-3px);
-    }
-  }  
+}
 
 /* 
 
@@ -253,52 +352,53 @@ width will only be given when hovering over links*/
 
 /*set logo to the left and set links to the right*/
 nav {
-    /*display and justify-content will send logo and links to opposite sides of page*/
-    display: flex;
-    justify-content: space-between;
-    /* center ul list (about, contact, etc) the nav section and style */
-    align-items: center;
-    /* make responsive */
-    width: 100%;
-    max-width: 1200px;
-    /* centers everything 0=top and bottom, auto=left and right*/
-    margin: 0 auto;
-    padding: 0 20px;
-    height: 100px;
-  }
-  
-  /*use # for id's*/
-  /*Logo in nav bar*/
-  #personal-logo {
-    /*height and width of logo*/
-    width: 50px;
-    height: 50px;
-    /*inverting a filter turns it black from white*/
-    filter: invert(1);
-  }
-  
-  /*here we target the unordered links in the nav bar and change them from being 
-  on top of each other, to them being stacked side by side*/
-  .nav__link--list {
-    display: flex;
-  }
-  
-  /* this styles the links by adding space between them */
-  .nav__link {
-    margin: 0 12px;
-  }
-  
-  /* we created this class because we will target these anchors separate from the dark mode button that we will be adding and targeting separately */
-  /* all anchor elements */
-  .nav__link--anchor {
-    font-size: 16px;
-    color: #242424;
-    font-weight: 700;
-  }
-  
-  .fa-adjust {
-    font-size: 20px;
-  }
+  /*display and justify-content will send logo and links to opposite sides of page*/
+  display: flex;
+  justify-content: space-between;
+  /* center ul list (about, contact, etc) the nav section and style */
+  align-items: center;
+  /* make responsive */
+  width: 100%;
+  max-width: 1200px;
+  /* centers everything 0=top and bottom, auto=left and right*/
+  margin: 0 auto;
+  /*space on the sides*/
+  padding: 0 20px;
+  height: 100px;
+}
+
+/*use # for id's*/
+/*Logo in nav bar*/
+#personal-logo {
+  /*height and width of logo*/
+  width: 50px;
+  height: 50px;
+  /*inverting a filter turns it black from white*/
+  filter: invert(1);
+}
+
+/*here we target the unordered links in the nav bar and change them from being 
+on top of each other, to them being stacked side by side*/
+.nav__link--list {
+  display: flex;
+}
+
+/* this styles the links by adding space between them */
+.nav__link {
+  margin: 0 12px;
+}
+
+/* we created this class because we will target these anchors separate from the dark mode button that we will be adding and targeting separately */
+/* all anchor elements */
+.nav__link--anchor {
+  font-size: 16px;
+  color: #242424;
+  font-weight: 700;
+}
+
+.fa-adjust {
+  font-size: 20px;
+}
 
 /* 
 
@@ -319,14 +419,15 @@ nav {
   /*I'm going to cap the width for users using large computers*/
   max-width: 1100px;
   height: 700px;
-  /*box-shadow: 0 20px 80px 0 rgb(0, 0, 0, 0.55);*/
   /*add border-radius to curve the edger and then do overflow; hidden to hide the overflow*/
   border-radius: 20px;
   overflow: hidden;
   /*we want to separate the halves right and left so I did display
   flex to bring the halves next to each other*/
   display: flex;
+  /*by default we don't see anything*/
   visibility: hidden;
+  /**/
   z-index: -1;
   transition: visibility 1s, z-index 1s, box-shadow 0.5s ease;
 }
@@ -346,8 +447,9 @@ nav {
   /*this put tech languages over each other*/
   display: flex;
   flex-direction: column;
-  /*This centers everything on the right side of the modal*/
+  /*This centers everything on the right side and left side of the modal*/
   justify-content: center;
+  /*this makes all things under this parent section relative to it so it wont be found on other parts of the page*/
   position: relative;
   transition: all 300ms ease-in;
 }
@@ -434,6 +536,7 @@ being stacked on top of each other to being side by side and responsive*/
 .modal__sub-title {
   /*here we create space around the title*/
   margin: 12px 0 24px 0;
+  /*this targets h3 "im currently open to new positions*/
   font-size: 14px;
 }
 
@@ -445,7 +548,105 @@ being stacked on top of each other to being side by side and responsive*/
   line-height: 1.75;
 }
 
-  /* 
+/*this is for the spacing in the text area boxes underneath the text space*/
+.form__item {
+  margin-bottom: 20px;
+}
+
+/*submit button styling*/
+.form__submit {
+  background-color: #f06449;
+  border: 2px solid #f06449;
+  color: white;
+  font-weight: 700;
+  width: 100%;
+  max-width: 240px;
+  /*we don't need to set height because we have the padding*/
+  padding: 12px 24px;
+  font-size: 20px;
+  transition: all 300ms ease;
+}
+
+/*when hovering over the button there will be a nice transition*/
+.form__submit:hover {
+  border-color: #fff;
+  /*make the buttom clear and show black background*/
+  background-color: transparent;
+}
+
+/*color will change once clicked*/
+.form__submit:active {
+  border-color: #f06449;
+  color: #f06449;
+}
+
+/*this is the parent so do absolute so everything will be specific and positioned to it*/
+.modal__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  /*this aloows you to see whats going on*/
+  z-index: -1;
+}
+
+/*styling loading spinner*/
+.modal__overlay--loading {
+  /*background color of loading spinner*/
+  background-color: #242424;
+  font-size: 80px;
+}
+
+/*THIS IS THE SUCCESS STATE AFTER CLICKING SUBMIT*/
+.modal__overlay--success {
+  background-color: #4bb543;
+  font-size: 40px;
+  /*font-weight bold*/
+  font-weight: 700;
+  /*center text*/
+  text-align: center;
+  /*add space around the text*/
+  padding: 28px;
+}
+
+/*make visible*/
+.modal__overlay--visible {
+  z-index: 1;
+  display: flex;
+}
+
+/*targer the spinner specifically to get it to rotate*/
+/*infinite will cause it to spend at all times*/
+.fa-spinner {
+  animation: spinner 750ms infinite linear;
+}
+
+/*when adding animation you need this keyframes*/
+@keyframes spinner {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*this styles the X that exits you out of the contact form*/
+.modal__exit {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  color: #fff;
+  font-size: 36px;
+  /*this makes sure it's infornt of everything*/
+  z-index: 100;
+}
+/* 
 
   PROJECTS 
   
@@ -454,107 +655,106 @@ being stacked on top of each other to being side by side and responsive*/
 
 /*targeting "Here are some of my projects"*/
 .section__title {
-    /*center text*/
-    text-align: center;
-    font-size: 48px;
-    margin-bottom: 60px;
-  }
-  
-  .project {
-    margin-bottom: 135px;
-  }
-  
-  /*project image box width size 100% to make it responsive*/
-  .project__img {
-    width: 100%;
-    /*when we hover over project img there will be a smooth transition*/
-    transition: all 600ms ease;
-  }
-  
-  /*make the wrapper relative so the description can be made position: absolute which will make the text position absolute(position on the image specifically) relative to the actual image*/
-  .project__wrapper {
-    position: relative;
-    /*this rounds the entire img/containers corners*/
-    border-radius: 20px;
-    /*0.45 is opacity*/
-    box-shadow: 0 20px 80px 0 rgb(0, 0, 0, 0.45);
-    /*border-radius was done to round the edges but the img is still over flowing so we want to hide the over flow so we can see the rounded corners*/
-    overflow: hidden;
-  }
-  
-  /*project__wrapper is the parent */
-  .project__wrapper:hover .project__description {
-    opacity: 1;
-    /*whenever you do top:50% (in position__description) you need to do translateY(-50%) to get it in the middle of the Y axis
-    every time you do left: 50% you need to do transform: translateX(-50%) to center when doing absolute*/
-    transform: translateY(-50%);
-  }
-  
-  /*project background blows up and transforms/animates be 1.07 when we hover over it and I blured it*/
-  .project__wrapper:hover .project__img {
-    transform: scale(1.07);
-    filter: blur(5px);
-  }
-  
-  .project__description {
-    position: absolute;
-    top: 50%;
-    left: 90px;
-    /*this centers the description text*/
-    transform: translateY(100%);
-    /*description is hidden in its normal state but when you hover over it, it becomes an opacity of 1 which is in the 
-    project__wrapper: hover project__description section*/
-    opacity: 0;
-    /*this makes for a smooth transition*/
-    transition: opacity 300ms, transform 450ms ease;
-    color: white;
-    max-width: 550px;
-  }
-  
-  .project__wrapper:hover .project__wrapper--bg {
-    /*background will be visible with light dark shade over it from opacity 0.7*/
-    opacity: 0.7; 
-    visibility: visible;
-  }
-  
-  .project__wrapper--bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #1c1d25;
-    /*makes background color transparent*/
-    opacity: 0; 
-    transition: all 450ms ease;
-    visibility: hidden;
-  }
-  
-  /*targeting the description title text*/
-  .project__description--title {
-    font-size: 40px;
-  }
-  
-  /*techologies description section*/
-  .project__description--sub-title {
-    /*creating space between title and technologies on top of technologies*/
-    margin-top: 8px;
-  }
-  
-  /*targeting the github and other link in description section*/
-  .project__description--link {
-    color: white;
-    font-size: 20px;
-    /*space the icons out from one another*/
-    margin-right: 16px;
-  }
-  
-  /*paragraph section of the description section (not technologies)*/
-  .project__description--para {
-    /*creating space on top and bottom*/
-    margin: 16px 0;
-  }
+  /*center text*/
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: 60px;
+}
 
+.project {
+  margin-bottom: 135px;
+}
+
+/*project image box width size 100% to make it responsive*/
+.project__img {
+  width: 100%;
+  /*when we hover over project img there will be a smooth transition*/
+  transition: all 600ms ease;
+}
+
+/*make the wrapper relative so the description can be made position: absolute which will make the text position absolute(position on the image specifically) relative to the actual image*/
+.project__wrapper {
+  position: relative;
+  /*this rounds the entire img/containers corners*/
+  border-radius: 20px;
+  /*0.45 is opacity*/
+  box-shadow: 0 20px 80px 0 rgb(0, 0, 0, 0.45);
+  /*border-radius was done to round the edges but the img is still over flowing so we want to hide the over flow so we can see the rounded corners*/
+  overflow: hidden;
+}
+
+/*project__wrapper is the parent */
+.project__wrapper:hover .project__description {
+  opacity: 1;
+  /*whenever you do top:50% (in position__description) you need to do translateY(-50%) to get it in the middle of the Y axis
+  every time you do left: 50% you need to do transform: translateX(-50%) to center when doing absolute*/
+  transform: translateY(-50%);
+}
+
+/*project background blows up and transforms/animates be 1.07 when we hover over it and we blured it*/
+.project__wrapper:hover .project__img {
+  transform: scale(1.07);
+  filter: blur(5px);
+}
+
+.project__description {
+  position: absolute;
+  top: 50%;
+  left: 90px;
+  /*this centers the description text*/
+  transform: translateY(100%);
+  /*description is hidden in its normal state but when you hover over it, it becomes an opacity of 1 which is in the 
+  project__wrapper: hover project__description section*/
+  opacity: 0;
+  /*this makes for a smooth transition*/
+  transition: opacity 300ms, transform 450ms ease;
+  color: white;
+  max-width: 550px;
+}
+
+.project__wrapper:hover .project__wrapper--bg {
+  /*background will be visible with light dark shade over it from opacity 0.7*/
+  opacity: 0.7; 
+  visibility: visible;
+}
+
+.project__wrapper--bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1c1d25;
+  /*makes background color transparent*/
+  opacity: 0; 
+  transition: all 450ms ease;
+  visibility: hidden;
+}
+
+/*targeting the description title text*/
+.project__description--title {
+  font-size: 40px;
+}
+
+/*techologies description section*/
+.project__description--sub-title {
+  /*creating space between title and technologies on top of technologies*/
+  margin-top: 8px;
+}
+
+/*targeting the github and other link in description section*/
+.project__description--link {
+  color: white;
+  font-size: 20px;
+  /*space the icons out from one another*/
+  margin-right: 16px;
+}
+
+/*paragraph section of the description section (not technologies)*/
+.project__description--para {
+  /*creating space on top and bottom*/
+  margin: 16px 0;
+}
 
 /* 
 
@@ -602,4 +802,137 @@ footer {
 .footer__social--link,
 .footer__copyright {
   color: white;
+}
+
+/* 
+
+  SHAPES
+
+  shapes on the first row 
+  height = 15vh
+  
+  shapes on the second row 
+  height = 50vh
+  
+  shapes on the third row 
+  height = 80vh
+
+  shapes on the first column
+  width = 5vw
+  
+  shapes on the second column
+  width = 50vw
+
+  shapes on the third column
+  width = 80vw
+
+*/
+.shape {
+  position: fixed;
+}
+.shape--0 {
+  top: 15vh;
+  left: 5vw;
+}
+.shape--1 {
+  top: 15vh;
+  left: 50vw;
+}
+.shape--2 {
+  top: 15vh;
+  left: 80vw;
+}
+.shape--3 {
+  top: 50vh;
+  left: 5vw;
+}
+.shape--4 {
+  top: 50vh;
+  left: 50vw;
+}
+.shape--5 {
+  top: 50vh;
+  left: 80vw;
+}
+.shape--6 {
+  top: 80vh;
+  left: 5vw;
+}
+.shape--7 {
+  top: 80vh;
+  left: 50vw;
+}
+.shape--8 {
+  top: 80vh;
+  left: 80vw;
+}
+
+/* ADDED AFTER TUTORIAL */
+.footer__logo--popper {
+  position: absolute;
+  right: 0;
+  top: 16px;
+  font-weight: 700;
+  opacity: 0;
+  transition: all 300ms ease;
+  color: white;
+}
+
+.footer__anchor {
+  position: relative;
+}
+
+.footer__anchor:hover .footer__logo--popper {
+  transform: translateX(60px);
+  opacity: 1;
+}
+
+/* Small phones, tablets, large smart phones */
+@media (max-width: 768px) {
+  .title {
+    font-size: 80px;
+  }
+  .header__para {
+    font-size: 20px;
+  }
+  .modal {
+    top: 0;
+    left: 0;
+    transform: none;
+    height: auto;
+    width: 100%;
+    flex-direction: column-reverse;
+    border-radius: 0;
+  }
+  .modal__half {
+    width: 100%;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .title {
+    font-size: 52px;
+  }
+  .header__para {
+    font-size: 18px;
+  }
+  .nav__link:first-child {
+    display: none;
+  }
+  .project__description--para {
+    display: none;
+  }
+  .project__description {
+    left: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .project__description--sub-title {
+    margin-bottom: 8px;
+  }
+  .modal__half {
+    padding: 40px;
+  }
 }
